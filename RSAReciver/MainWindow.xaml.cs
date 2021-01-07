@@ -26,9 +26,11 @@ namespace RSAReciver
         public MainWindow()
         {
             InitializeComponent();
+            // instantiates the Rsa Decrypt class 
             _rsa = new RsaDecrypt();
             _rsa.AssignNewKey();
 
+            // Displays All the Key Data to the Window START ---------------------
             // Public Date
             ExponentText.Text = Convert.ToBase64String(_rsa._publicKey.Exponent);
             ModulusText.Text = Convert.ToBase64String(_rsa._publicKey.Modulus);
@@ -41,6 +43,11 @@ namespace RSAReciver
             QText.Text = Convert.ToBase64String(_rsa._privateKey.Q);
         }
 
+        /// <summary>
+        /// Decrypts the Data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Decrypt_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(CipherBytesText.Text))
