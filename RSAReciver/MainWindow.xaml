@@ -30,6 +30,7 @@
         <Button Name="Decrypt" Content="Decrypt" HorizontalAlignment="Left" Margin="215,570,0,0" VerticalAlignment="Top" Width="130" Click="Decrypt_Click"/>
         <Label Content="Decrypted:" HorizontalAlignment="Left" Margin="57,605,0,0" VerticalAlignment="Top"/>
         <TextBox Name="DecryptedText" HorizontalAlignment="Left" Margin="145,609,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="895"/>
+        <Button Name="SendKey" Content="Send Key" HorizontalAlignment="Left" Margin="55,139,0,0" VerticalAlignment="Top" Width="70" Click="SendKey_Click"/>
 
     </Grid>
 </Window>
