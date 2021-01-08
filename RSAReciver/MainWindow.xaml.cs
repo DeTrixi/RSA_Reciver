@@ -22,8 +22,11 @@ namespace RSAReciver
     /// </summary>
     public partial class MainWindow : Window
     {
+        // here i declare the rsa decrypt class
         private readonly RsaDecrypt _rsa;
+        // here i declare the tcp server
         private readonly TcpServer _tcpServer;
+        // Here i set the port it should be listening to
         const int PortNo = 13000;
         const string ServerIp = "127.0.0.1";
         
@@ -56,14 +59,24 @@ namespace RSAReciver
             InverseQText.Text = Convert.ToBase64String(_rsa._privateKey.InverseQ);
             PText.Text = Convert.ToBase64String(_rsa._privateKey.P);
             QText.Text = Convert.ToBase64String(_rsa._privateKey.Q);
+            // Displays All the Key Data to the Window STOP ----------------------
         }
 
+        /// <summary>
+        /// This event triggers if message i TcpServer is received
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _tcpServer_MessageReceived(object sender, string e)
         {
             
             Dispatcher.BeginInvoke(new UpdateCipherText(UpdateCipher), new object[] {e});
         }
 
+        /// <summary>
+        /// This method is used to update the UI from Tcp server task
+        /// </summary>
+        /// <param name="cipher"></param>
         private void UpdateCipher(string cipher)
         {
             CipherBytesText.Text = cipher;
